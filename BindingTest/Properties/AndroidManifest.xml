@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+  package="jp.co.jmas.testbeaconsdk" android:versionCode="1" 
+  android:versionName="1.0">
+  <uses-sdk android:minSdkVersion="16" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+  <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+  <uses-permission android:name="android.permission.BLUETOOTH" />
+  <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+  <uses-feature android:name="android.hardware.bluetooth_le" android:required="true"/>
+  <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+  <application android:label="BindingTest">
+    <service
+            android:name="com.beacapp.service.JBCPScanService"
+            android:exported="false"
+            android:process=":bleservice">
+      <intent-filter>
+        <action android:name="com.beacapp.BLEServiceAIDL"/>
+        <action android:name="com.beacapp.BLEServiceCalbackAIDL"/>
+      </intent-filter>
+    </service>
+
+  </application>
+</manifest>
